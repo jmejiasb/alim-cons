@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -33,9 +33,10 @@ export default function RootLayout({
           defaultTheme="system"
           disableTransitionOnChange
         >
-          {children}
+          <main className="flex min-h-screen w-full items-center justify-center bg-zinc-100 font-sans dark:bg-slate-900">
+            {children}
+          </main>
         </ThemeProvider>
-        
       </body>
     </html>
   );
