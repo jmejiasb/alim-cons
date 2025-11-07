@@ -13,11 +13,11 @@ interface NavButtonProps {
 export function NavButton({ href, label, inverted = false }: NavButtonProps) {
   const shadowBg = inverted
     ? "bg-emerald-600 hover:bg-emerald-700 dark:bg-blue-900 dark:hover:bg-blue-950"
-    : "bg-gray-300 hover:bg-gray-400 dark:bg-slate-700 dark:hover:bg-slate-800";
+    : "bg-gray-400 hover:bg-gray-500 dark:bg-slate-700 dark:hover:bg-slate-800";
 
   const btnBg = inverted
     ? "bg-gray-200 hover:bg-gray-300 text-emerald-600 dark:bg-slate-700 dark:hover:bg-slate-800 dark:text-blue-600"
-    : "bg-emerald-600 hover:bg-emerald-700 text-gray-200 dark:bg-blue-900 dark:hover:bg-blue-950";
+    : "bg-emerald-500 hover:bg-emerald-600 text-gray-200 dark:bg-blue-900 dark:hover:bg-blue-950";
 
   return (
     <div className="inline-block relative group w-9/10">
