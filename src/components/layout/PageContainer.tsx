@@ -1,6 +1,6 @@
 interface PageContainerProps {
   children: React.ReactNode;
-  maxWidth?: "sm" | "md" | "lg" | "xl" | "full";
+  maxWidth?: "xs" | "sm" | "md" | "lg" | "xl" | "full";
   className?: string;
 }
 
@@ -10,6 +10,7 @@ export function PageContainer({
   className = "",
 }: PageContainerProps) {
   const widthClasses = {
+    xs: "max-w-md",
     sm: "max-w-xl",
     md: "max-w-3xl",
     lg: "max-w-5xl",

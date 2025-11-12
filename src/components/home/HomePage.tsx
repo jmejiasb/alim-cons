@@ -5,7 +5,7 @@ import { NavButton } from "./NavButton";
 
 export default function HomePage() {
   return (
-    <PageContainer>
+    <PageContainer maxWidth="xs">
       <div className="flex flex-col items-start ml-auto mb-25">
         <ThemeToggle />
       </div>
