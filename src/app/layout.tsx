@@ -33,7 +33,7 @@ export default function RootLayout({
           defaultTheme="system"
           disableTransitionOnChange
         >
-          <main className="flex min-h-screen w-full items-center justify-center bg-zinc-100 font-sans dark:bg-slate-900">
+          <main className="flex min-h-screen w-full bg-zinc-100 font-sans dark:bg-slate-900 md:items-center md:justify-center">
             {children}
           </main>
         </ThemeProvider>
