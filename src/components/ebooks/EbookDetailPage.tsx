@@ -23,11 +23,15 @@ export function EbookDetailPage({ ebook }: EbookDetailPageProps) {
     <PageContainer maxWidth="lg">
       <NavigationLayout buttons={buttons} />
       <div className="mt-10 grid gap-6 md:grid-cols-2">
-        <Image
+        <div className="relative aspect-2/3 w-full">
+          <Image
+          fill
           src={ebook.imgUrl}
           alt={ebook.title}
           className="w-full rounded-lg"
         />
+        </div>
+        
 
         <div className="flex flex-col gap-4">
           <h1 className="text-2xl font-semibold">{ebook.title}</h1>

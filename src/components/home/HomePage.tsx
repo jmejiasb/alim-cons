@@ -32,8 +32,8 @@ export default function HomePage() {
         </div>
         <div className="flex flex-col items-center align-top w-full gap-5">
           <NavButton href="/ebooks" label="EBOOKS" />
-          <NavButton href="/" label="Asesoría Personalizada" inverted={true} />
-          <NavButton href="/" label="Catálogo" />
+          <NavButton href="/contact" label="Asesoría Personalizada" inverted={true} />
+          <NavButton href="/about" label="Sobre mi" />
         </div>
       </div>
     </PageContainer>

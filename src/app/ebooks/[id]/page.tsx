@@ -7,9 +7,10 @@ interface PageProps {
 }
 
 export default async function EbookPageById({ params }: PageProps) {
-  const ebook = await getEbookById(params.id);
 
-  console.log(ebook)
+  const { id } = await params;
+  
+  const ebook = await getEbookById(id);
 
   if (!ebook) notFound();
 
