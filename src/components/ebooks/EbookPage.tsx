@@ -3,9 +3,8 @@
 import { PageContainer } from "../layout/PageContainer";
 import { EbookCard } from "./EbookCard";
 import type { Ebook } from "@/types/ebook";
-import { createDefaultNavigationButtons } from "../layout/createDefaultNavButtons";
 import { NavigationLayout } from "../layout/NavigationLayout";
-import { useRouter } from "next/navigation";
+import { useDefaultNavButtons } from "@/hooks/useDefaultNavButtons";
 
 interface EbookPageProps {
   ebooks: readonly Ebook[];
@@ -13,12 +12,7 @@ interface EbookPageProps {
 
 export function EbookPage({ ebooks }: EbookPageProps) {
 
-  const router = useRouter();
-
-  const buttons = createDefaultNavigationButtons({
-    onBack: () => router.back(),
-    onCart: () => {},
-  });
+  const buttons = useDefaultNavButtons()
 
   return (
     <PageContainer maxWidth="xl">

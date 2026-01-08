@@ -1,16 +1,14 @@
 "use client";
 
-import { createDefaultNavigationButtons } from "../layout/createDefaultNavButtons";
+import { useDefaultNavButtons } from "@/hooks/useDefaultNavButtons";
 import { NavigationLayout } from "../layout/NavigationLayout";
 import { PageContainer } from "../layout/PageContainer";
 import { AvatarRound } from "./AvatarRound";
 import { NavButton } from "./NavButton";
 
 export default function HomePage() {
-  const buttons = createDefaultNavigationButtons({
-    onBack: () => {},
-    onCart: () => {},
-  }).map(b => {
+
+  const buttons = useDefaultNavButtons().map(b => {
     if (b.id != "back") return b
 
     return {...b, disabled: true}

@@ -22,7 +22,7 @@ interface ContactFormProps {
 export function ContactForm({ onSubmit }: ContactFormProps) {
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { name: "", email: "", message: "" }
+    defaultValues: { name: "", email: "", message: "", phone: ""}
   });
 
   return (
@@ -83,7 +83,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
             </FormItem>
           )}
         />
-
+      
         <Button type="submit" disabled={form.formState.isSubmitting} className="w-full">
           {form.formState.isSubmitting ? "Enviando..." : "Enviar"}
         </Button>
