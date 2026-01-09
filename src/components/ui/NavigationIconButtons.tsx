@@ -3,7 +3,7 @@
 import { IconButton, type IconButtonProps} from "./IconButton";
 
 export type NavIconButton =
-  Pick<IconButtonProps, "icon" | "ariaLabel" | "onClick" | "className" | "disabled"> & {
+  Pick<IconButtonProps, "icon" | "ariaLabel" | "onClick" | "className" | "disabled" | "badge"> & {
     id: string
   }
 
@@ -22,6 +22,7 @@ export function NavigationIconButtons({ buttons }: NavigationIconButtonsProps) {
           onClick={btn.onClick}
           disabled={btn.disabled}
           className={btn.className}
+          badge={btn.badge}
         />
       ))}
     </nav>

@@ -5,6 +5,8 @@ import { EbookCard } from "./EbookCard";
 import type { Ebook } from "@/types/ebook";
 import { NavigationLayout } from "../layout/NavigationLayout";
 import { useDefaultNavButtons } from "@/hooks/useDefaultNavButtons";
+import { PageTitle } from "../layout/PageTitle";
+import { useCartActions } from "@/hooks/useCartActions";
 
 interface EbookPageProps {
   ebooks: readonly Ebook[];
@@ -12,7 +14,9 @@ interface EbookPageProps {
 
 export function EbookPage({ ebooks }: EbookPageProps) {
 
-  const buttons = useDefaultNavButtons()
+  const buttons = useDefaultNavButtons();
+
+  const { addItem } = useCartActions();
 
   return (
     <PageContainer maxWidth="xl">
@@ -20,9 +24,9 @@ export function EbookPage({ ebooks }: EbookPageProps) {
       {/* <div className="flex flex-col items-start ml-auto mb-10">
         <ThemeToggle />
       </div> */}
-      <h1 className="max-w-xs text-xl font-semibold leading-10 tracking-tight text-emerald-800 dark:text-zinc-50 mr-auto mb-10">
-        Mis Ebooks
-      </h1>
+      <PageTitle 
+        title="Mis Ebooks"
+      /> 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-5">
         {ebooks?.map((ebook) => (
           <EbookCard
@@ -32,7 +36,7 @@ export function EbookPage({ ebooks }: EbookPageProps) {
             imgUrl={ebook.imgUrl}
             regularPrice={ebook.regularPrice}
             salesPrice={ebook.salesPrice ?? 0}
-            onClick={() => {}}
+            onClick={() => addItem(ebook)}
           />
         ))}
       </div>

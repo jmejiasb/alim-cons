@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { CartProvider } from "@/context/CartContext";
+import { CartDrawer } from "@/components/cart/CartDrawer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +35,12 @@ export default function RootLayout({
           defaultTheme="system"
           disableTransitionOnChange
         >
-          <main className="flex min-h-screen w-full bg-zinc-100 font-sans dark:bg-slate-900 md:items-center md:justify-center">
-            {children}
-          </main>
+          <CartProvider>
+            <main className="flex min-h-screen w-full bg-zinc-100 font-sans dark:bg-slate-900 md:items-center md:justify-center">
+              {children}
+              <CartDrawer />
+            </main>
+          </CartProvider>
         </ThemeProvider>
       </body>
     </html>

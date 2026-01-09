@@ -3,26 +3,18 @@
 import { PageContainer } from "../layout/PageContainer";
 import { NavigationLayout } from "../layout/NavigationLayout";
 import Image from "next/image";
-import { ContactForm } from "./ContactForm";
 import { useDefaultNavButtons } from "@/hooks/useDefaultNavButtons";
-import { ContactFormData } from "@/schemas/contactSchema";
-import { postContactData } from "@/repositories/contactRepository";
 import { PageTitle } from "../layout/PageTitle";
 
-export function ContactPage() {
+export function AboutPage() {
   const buttons = useDefaultNavButtons();
-
-  const onSubmit = async (data: ContactFormData) => postContactData(data);
 
   return (
     <PageContainer maxWidth="md">
       <NavigationLayout buttons={buttons} />
-
-      <PageTitle title="Contáctanos" />
+      <PageTitle title="Sobre Mi" />
 
       <div className="mt-10 grid gap-8 md:grid-cols-2">
-        <ContactForm onSubmit={onSubmit} />
-
         <div className="relative hidden md:block aspect-2/3 w-full row-span-2 h-125">
           <Image
             fill
@@ -31,6 +23,16 @@ export function ContactPage() {
             className="rounded-lg object-cover"
           />
         </div>
+        <h2>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          finibus luctus erat vel interdum. Suspendisse id elit vitae urna
+          aliquet interdum eget sit amet ex. Fusce gravida ut ex vulputate
+          suscipit. Duis mattis quam augue, id rutrum sem ornare vitae. Fusce
+          molestie eleifend feugiat. Suspendisse a ullamcorper massa, in lacinia
+          est. Pellentesque habitant morbi tristique senectus et netus et
+          malesuada fames ac turpis egestas. Mauris condimentum orci ac felis
+          finibus cursus. Phasellus ac porttitor ex.{" "}
+        </h2>
       </div>
     </PageContainer>
   );
