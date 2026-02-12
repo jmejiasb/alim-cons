@@ -8,6 +8,6 @@ import { EbooksService } from './ebooks.service';
   imports: [TypeOrmModule.forFeature([Ebook])],
   controllers: [],
   providers: [EbookResolvers, EbooksService],
-  exports: [],
+  exports: [EbooksService],
 })
 export class EbooksModule {}

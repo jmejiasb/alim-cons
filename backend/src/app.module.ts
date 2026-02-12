@@ -5,6 +5,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, type ApolloDriverConfig } from '@nestjs/apollo';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EbooksModule } from './ebooks/ebooks.module';
+import { PurchasesModule } from './purchases/purchase.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { EbooksModule } from './ebooks/ebooks.module';
       synchronize: true, // disable in production or something
     }),
     EbooksModule,
+    PurchasesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

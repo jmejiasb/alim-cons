@@ -19,7 +19,7 @@ export class PurchasesService {
   ) {}
 
   findAll(): Promise<Purchase[]> {
-    return this.repo.find();
+    return this.repo.find({ relations: ['items', 'items.ebook'] });
   }
 
   async create(input: CreatePurchaseInput): Promise<Purchase> {

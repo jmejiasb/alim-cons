@@ -1,12 +1,6 @@
 import { InputType, Field } from '@nestjs/graphql';
-import {
-  IsNotEmpty,
-  IsString,
-  IsEnum,
-  IsArray,
-  ValidateNested,
-} from 'class-validator';
-import { PurchaseStatus } from '../purchase-status.enum';
+import { IsNotEmpty, IsString, IsArray, ValidateNested } from 'class-validator';
+import { Type } from 'class-transformer';
 
 @InputType()
 export class PurchaseItemInput {
@@ -27,18 +21,11 @@ export class CreatePurchaseInput {
   @IsNotEmpty()
   email: string;
 
-  @Field()
+  @Field(() => [PurchaseItemInput])
   @IsArray()
   @ValidateNested({ each: true })
+  @Type(() => PurchaseItemInput)
   items: PurchaseItemInput[];
-
-  @Field(() => PurchaseStatus)
-  @IsEnum({
-    type: 'enum',
-    enum: PurchaseStatus,
-    default: PurchaseStatus.PENDING_VERIFICATION,
-  })
-  status: PurchaseStatus;
 
   @Field({ nullable: true })
   @IsString()
