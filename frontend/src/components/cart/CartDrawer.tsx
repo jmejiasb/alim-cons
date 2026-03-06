@@ -12,8 +12,10 @@ import {
 import { Button } from '@/components/ui/button';
 import { CartItem } from './CartItem';
 import { CartEmpty } from './CartEmpty';
+import { useRouter } from 'next/navigation';
 
 export function CartDrawer() {
+  const router = useRouter();
   const { state } = useCart();
   const { closeDrawer } = useCartActions();
   const { subtotal, itemCount } = useCartTotals();
@@ -45,7 +47,7 @@ export function CartDrawer() {
               <span>Subtotal</span>
               <span>${subtotal.toFixed(2)}</span>
             </div>
-            <Button className="w-full" size="lg">
+            <Button className="w-full" size="lg" onClick={() => { closeDrawer(); router.push('/checkout')}}>
               Finalizar Compra
             </Button>
           </div>

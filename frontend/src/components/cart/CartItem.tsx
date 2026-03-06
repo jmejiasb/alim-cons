@@ -16,7 +16,7 @@ export function CartItem({ item }: CartItemProps) {
   const hasDiscount = item.ebook.salesPrice && item.ebook.salesPrice < item.ebook.regularPrice;
 
   return (
-    <div className="flex gap-4 p-3 rounded-lg relative bg-green-200 hover:bg-green-200">
+    <div className="flex gap-4 p-3 rounded-lg relative bg-green-200 hover:bg-green-200 dark:bg-slate-700 dark:hover:bg-slate-800" >
       <div className="relative w-16 h-24 shrink-0">
         <Image
           src={item.ebook.imgUrl}
