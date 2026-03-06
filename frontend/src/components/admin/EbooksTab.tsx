@@ -1,3 +1,11 @@
+"use client"
+
+import { EbookTable } from "./EbooksTable"
+import { useState } from "react"
+
 export function EbooksTab() {
-  return "this is ebooks"
+
+  const [ebooks, setEbooks] = useState([])
+
+  return (<EbookTable ebooks={ebooks}/>)
 }
