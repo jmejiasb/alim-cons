@@ -8,6 +8,7 @@ import { useDefaultNavButtons } from "@/hooks/useDefaultNavButtons";
 import { ContactFormData } from "@/schemas/contactSchema";
 import { postContactData } from "@/repositories/contactRepository";
 import { PageTitle } from "../layout/PageTitle";
+import contactus from "@/assets/contactus.webp";
 
 export function ContactPage() {
   const buttons = useDefaultNavButtons();
@@ -17,18 +18,18 @@ export function ContactPage() {
   return (
     <PageContainer maxWidth="md">
       <NavigationLayout buttons={buttons} />
+      <div className="grid gap-8 md:grid-cols-2">
+        <div>
+          <PageTitle title="Contáctanos" />
+          <ContactForm onSubmit={onSubmit} />
+        </div>
 
-      <PageTitle title="Contáctanos" />
-
-      <div className="mt-10 grid gap-8 md:grid-cols-2">
-        <ContactForm onSubmit={onSubmit} />
-
-        <div className="relative hidden md:block aspect-2/3 w-full row-span-2 h-125">
+       <div className="relative hidden md:block aspect-2/3 w-full h-full">
           <Image
             fill
-            src={"https://picsum.photos/id/41/1280/805"}
-            alt={"Reinnys Benitez"}
-            className="rounded-lg object-cover"
+            src={contactus.src}
+            alt={"Contactanos"}
+            className="rounded-lg object-contain"
           />
         </div>
       </div>
