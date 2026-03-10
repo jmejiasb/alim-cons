@@ -32,7 +32,7 @@ export function CheckoutPage() {
             onCompleted={() => setCompleted(true)}
           />
         </div>
-        <div className="relative hidden md:block aspect-2/3 w-full h-full">
+        <div className="relative hidden md:block aspect-2/3">
           <Image
             fill
             src={checkout.src}
