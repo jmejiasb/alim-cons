@@ -23,38 +23,35 @@ export function EbookCard({
   onClick,
 }: EbookCardProps) {
   return (
-    <Link href={`/ebooks/${id}`}>
-      <Card className="rounded-xl border-0 bg-green-100 hover:bg-green-200 hover:transform-view dark:bg-slate-700 dark:hover:bg-slate-800 cursor-pointer ">
-        <CardContent className="flex flex-col h-full">
-          <div className="flex justify-center align-top">
-            <Image alt={title} src={imgUrl} width={150} height={300} />
+    <Link href={`/ebooks/${id}`} className="block">
+      <Card className="w-full max-w-60 overflow-hidden rounded-2xl border border-green-200 bg-green-100 transition-all hover:-translate-y-1 hover:shadow-md dark:border-slate-600 dark:bg-slate-700">
+        <CardContent className="p-4 flex flex-col gap-3 h-full">
+          <div className="relative w-full aspect-3/4 overflow-hidden rounded-xl">
+            <Image src={imgUrl} alt={title} fill className="object-cover" />
           </div>
 
-          <div className="flex flex-col flex-1 justify-between mt-4">
-            <CardTitle className="text-md font-semibold leading-tight">
-              {title}
-            </CardTitle>
+          <CardTitle className="mt-3 text-base font-semibold leading-tight line-clamp-2">
+            {title}
+          </CardTitle>
 
-            <CardDescription className="mt-2 text-gray-700 dark:text-gray-300">
-              <div className="flex justify-between items-center">
-                $
-                {salesPrice > 0
-                  ? salesPrice?.toFixed(2)
-                  : regularPrice.toFixed(2)}
-                <IconButton
-                  variant="ghost"
-                  size="icon-lg"
-                  icon={<CirclePlus />}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    onClick?.();
-                  }}
-                  ariaLabel="Agregar a Carrito"
-                  className="hover:bg-green-500 hover:text-white dark:hover:bg-slate-700 rounded-4xl"
-                />
-              </div>
+          <div className="flex items-center justify-between mt-auto pt-2">
+            <CardDescription className="text-base font-semibold text-emerald-800 dark:text-slate-300">
+              $
+              {salesPrice > 0 ? salesPrice.toFixed(2) : regularPrice.toFixed(2)}
             </CardDescription>
+
+            <IconButton
+              variant="ghost"
+              size="icon-lg"
+              icon={<CirclePlus />}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onClick();
+              }}
+              className="rounded-full hover:bg-emerald-200/40 dark:hover:bg-slate-600"
+              ariaLabel="Agregar a Carrito"
+            />
           </div>
         </CardContent>
       </Card>

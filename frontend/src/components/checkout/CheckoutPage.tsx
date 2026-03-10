@@ -15,7 +15,7 @@ export function CheckoutPage() {
   const buttons = useDefaultNavButtons();
   const { state } = useCart();
   const { subtotal } = useCartTotals();
-  const [completed, setCompleted] = useState(false);
+  const [completed, setCompleted] = useState(true);
 
   if (completed) return <BankTransferDetails />;
 

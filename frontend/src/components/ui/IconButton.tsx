@@ -1,10 +1,10 @@
 import { Button } from "./button";
-import type { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 type ButtonProps = ComponentPropsWithoutRef<typeof Button>;
 
 export interface IconButtonProps extends Omit<ButtonProps, "children"> {
-  icon: React.ReactNode;
+  icon: ReactNode;
   ariaLabel: string;
   badge?: number;
 }
@@ -23,7 +23,7 @@ export function IconButton({
       variant={variant}
       size={size}
       aria-label={ariaLabel}
-      className={`relative ${className || ""}`}
+      className={`relative rounded-full hover:bg-transparent ${className ?? ""}`}
       {...props}
     >
       {icon}

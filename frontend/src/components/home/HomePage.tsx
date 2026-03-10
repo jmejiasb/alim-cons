@@ -3,8 +3,10 @@
 import { useDefaultNavButtons } from "@/hooks/useDefaultNavButtons";
 import { NavigationLayout } from "../layout/NavigationLayout";
 import { PageContainer } from "../layout/PageContainer";
-import { AvatarRound } from "./AvatarRound";
+import { AvatarRound } from "../layout/AvatarRound";
 import { NavButton } from "./NavButton";
+import { PageTitle } from "../layout/PageTitle";
+import logo from "@/assets/logo.webp"
 
 export default function HomePage() {
 
@@ -23,10 +25,10 @@ export default function HomePage() {
         </div> */}
 
         <div className="flex flex-col items-center w-full gap-2 mb-8">
-          <AvatarRound />
-          <h1 className="max-w-xs text-xl font-semibold leading-10 tracking-tight text-emerald-800 dark:text-zinc-50">
-            MongoDB
-          </h1>
+          <AvatarRound 
+            src={logo.src}
+          />
+          <PageTitle title="Reinnys Benitez"/>
         </div>
         <div className="flex flex-col items-center align-top w-full gap-5">
           <NavButton href="/ebooks" label="EBOOKS" />
