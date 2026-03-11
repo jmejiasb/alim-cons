@@ -12,8 +12,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { FormInputField } from "../ui/FormInputField";
 
 interface ContactFormProps {
   onSubmit: (data: ContactFormData) => Promise<void>;
@@ -29,68 +29,29 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-5 w-full rounded-2xl border border-emerald-200 bg-green-100 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800"
+        className="space-y-5 w-full rounded-2xl border border-border bg-card p-6 shadow-sm"
       >
-        <FormField
+        <FormInputField<ContactFormData>
           control={form.control}
           name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-emerald-900 font-medium dark:text-emerald-200">
-                Nombre
-              </FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  placeholder="Tu nombre"
-                  className="border-emerald-200 bg-emerald-50 text-emerald-950 placeholder:text-emerald-700/60 focus-visible:ring-emerald-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-400 dark:focus-visible:ring-emerald-400"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          label="Nombre"
+          placeholder="Tu nombre"
         />
 
-        <FormField
+        <FormInputField
           control={form.control}
           name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-emerald-900 font-medium dark:text-emerald-200">
-                Correo Electrónico
-              </FormLabel>
-              <FormControl>
-                <Input
-                  type="email"
-                  {...field}
-                  placeholder="tu@mail.com"
-                  className="border-emerald-200 bg-emerald-50 text-emerald-950 placeholder:text-emerald-700/60 focus-visible:ring-emerald-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-400 dark:focus-visible:ring-emerald-400"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          label="Correo Electrónico"
+          type="email"
+          placeholder="tu@mail.com"
         />
 
-        <FormField
+        <FormInputField
           control={form.control}
           name="phone"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-emerald-900 font-medium dark:text-emerald-200">
-                Nro. Telefono (Opcional)
-              </FormLabel>
-              <FormControl>
-                <Input
-                  type="tel"
-                  placeholder="+56912341234"
-                  {...field}
-                  className="border-emerald-200 bg-emerald-50 text-emerald-950 placeholder:text-emerald-700/60 focus-visible:ring-emerald-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-400 dark:focus-visible:ring-emerald-400"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          label="Nro. Telefono (Opcional)"
+          type="tel"
+          placeholder="+56912341234"
         />
 
         <FormField
@@ -98,16 +59,18 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-emerald-900 font-medium dark:text-emerald-200">
+              <FormLabel className="font-medium text-foreground">
                 Mensaje
               </FormLabel>
+
               <FormControl>
                 <Textarea
                   {...field}
                   placeholder="Escribe tu mensaje..."
-                  className="border-emerald-200 bg-emerald-50 text-emerald-950 placeholder:text-emerald-700/60 focus-visible:ring-emerald-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-400 dark:focus-visible:ring-emerald-400"
+                  className="border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:ring-ring"
                 />
               </FormControl>
+
               <FormMessage />
             </FormItem>
           )}
@@ -116,7 +79,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         <Button
           type="submit"
           disabled={form.formState.isSubmitting}
-          className="w-full bg-emerald-700 text-white hover:bg-emerald-800 dark:bg-emerald-600 dark:hover:bg-emerald-500"
+          className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
         >
           {form.formState.isSubmitting ? "Enviando..." : "Enviar"}
         </Button>

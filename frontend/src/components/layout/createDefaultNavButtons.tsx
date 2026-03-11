@@ -8,19 +8,22 @@ export function createDefaultNavigationButtons(
   },
   cartItemCount?: number
 ): NavIconButton[] {
+
+  const baseClass = "hover:bg-accent cursor-pointer";
+
   return [
     {
       id: "back",
       icon: <ArrowBigLeft />,
       ariaLabel: "Volver",
-      className: "hover:bg-emerald-200 dark:hover:bg-slate-700 cursor-pointer",
+      className: baseClass,
       onClick: actions.onBack,
     },
     {
       id: "cart",
       icon: <ShoppingCart />,
       ariaLabel: "Carrito",
-      className: "hover:bg-emerald-200 dark:hover:bg-slate-700 cursor-pointer",
+      className: baseClass,
       badge: cartItemCount || undefined,
       onClick: actions.onCart,
     },
