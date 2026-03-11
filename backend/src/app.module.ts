@@ -1,12 +1,17 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, type ApolloDriverConfig } from '@nestjs/apollo';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EbooksModule } from './ebooks/ebooks.module';
 import { PurchasesModule } from './purchases/purchase.module';
+import { StorageModule } from './common/storage/storage.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
@@ -23,6 +28,7 @@ import { PurchasesModule } from './purchases/purchase.module';
     }),
     EbooksModule,
     PurchasesModule,
+    StorageModule,
   ],
   controllers: [],
   providers: [],

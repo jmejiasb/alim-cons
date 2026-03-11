@@ -15,7 +15,7 @@ export class Ebook extends BaseEntity {
 
   @Field()
   @Column()
-  url: string;
+  filePath: string;
 
   @Field()
   @Column()

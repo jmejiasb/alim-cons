@@ -4,15 +4,22 @@ import { Repository } from 'typeorm';
 import { Ebook } from './ebooks.entity';
 import { CreateEbookInput } from './dto/create-ebook.input';
 import { UpdateEbookInput } from './dto/update-ebook.input';
+import { StorageService } from 'src/common/storage/storage.service';
 
 @Injectable()
 export class EbooksService {
   constructor(
     @InjectRepository(Ebook)
     private readonly repo: Repository<Ebook>,
+    private readonly storageService: StorageService,
   ) {}
 
-  findAll(): Promise<Ebook[]> {
+  async findAll(): Promise<Ebook[]> {
+    const url = await this.storageService.createSignedDownload(
+      'organizate-cuidarte/vs.pdf',
+    );
+
+    console.log(url);
     return this.repo.find();
   }
 
