@@ -47,10 +47,10 @@
   --radius: 0.625rem;
 
   /* base surfaces */
-  --background: oklch(0.97 0.015 315);
+  --background: oklch(0.94 0.004 280);
   --foreground: oklch(0.3 0.04 295);
 
-  --card: oklch(0.985 0.01 315);
+  --card: oklch(0.97 0.015 300);
   --card-foreground: oklch(0.28 0.04 295);
 
   --popover: oklch(0.985 0.01 315);
@@ -65,7 +65,7 @@
   --secondary-foreground: oklch(0.32 0.04 295);
 
   /* muted */
-  --muted: oklch(0.94 0.015 315);
+  --muted: oklch(0.93 0.02 300);
   --muted-foreground: oklch(0.5 0.03 295);
 
   /* accent */
@@ -135,17 +135,11 @@
   body {
     @apply text-foreground;
 
-    background:
-      radial-gradient(
-        circle at 30% 20%,
-        oklch(0.88 0.06 300 / 0.5),
-        transparent 40%
-      ),
-      radial-gradient(
-        circle at 80% 80%,
-        oklch(0.9 0.05 280 / 0.4),
-        transparent 40%
-      ),
-      var(--background);
+    background: radial-gradient(
+      circle at 50% 0%,
+      oklch(1 0 0 / 0.35),
+      transparent 60%
+    ),
+    var(--background);
   }
 }

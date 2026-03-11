@@ -24,7 +24,8 @@ export function PageContainer({
         className={`
           flex h-full w-screen ${widthClasses[maxWidth]} flex-col items-center px-16 py-8
           sm:min-h-[90vh] sm:rounded-4xl md:rounded-4xl
-          bg-linear-to-t from-background to-muted
+          bg-linear-to-b from-card to-muted
+          shadow-xs
           text-foreground
           ease-out animate-in fade-in slide-in-from-bottom-4
           ${className}

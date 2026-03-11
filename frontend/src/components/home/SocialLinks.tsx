@@ -10,7 +10,7 @@ export function SocialLinks() {
         <IconButton icon={<SiInstagram size={18} />} ariaLabel="Instagram" className="text-primary hover:text-primary/80"/>
       </Link>
 
-      <Link href="mailto:reinnys13@gmail.com">
+      <Link href="mailto:adminreinnys13@gmail.com">
         <IconButton icon={<Mail size={18} />} ariaLabel="Email" className="text-primary hover:text-primary/80"/>
       </Link>
     </div>
