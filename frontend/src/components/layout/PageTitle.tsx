@@ -10,7 +10,7 @@ export function PageTitle({ title, className, ...props }: PageTitleProps) {
     <h1
       className={cn(
         "mx-auto mb-10 max-w-xs text-center text-xl font-semibold tracking-tight text-primary",
-        className
+        className,
       )}
       {...props}
     >

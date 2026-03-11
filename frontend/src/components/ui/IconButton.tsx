@@ -28,8 +28,13 @@ export function IconButton({
     >
       {icon}
       {badge && badge > 0 && (
-        <span className="absolute -top-0.5 -right-0.5 bg-primary text-primary-foreground text-[10px] rounded-full min-w-4.5 h-4.5 flex items-center justify-center font-semibold leading-none">
-          {badge > 99 ? '99+' : badge}
+        <span
+          className="absolute -top-1 -right-1 flex 
+        items-center justify-center min-w-4.5 h-4.5 
+        rounded-full bg-primary text-primary-foreground text-[10px] 
+        font-semibold leading-none ring-2 ring-background"
+        >
+          {badge > 99 ? "99+" : badge}
         </span>
       )}
     </Button>

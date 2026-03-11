@@ -9,7 +9,7 @@ import { useCartTotals } from "@/hooks/useCartTotals";
 import { BankTransferDetails } from "./BankTransferDetails";
 import { CheckoutForm } from "./CheckoutForm";
 import checkout from "@/assets/checkout.webp";
-import { AvatarRound } from "../layout/AvatarRound";
+import { AvatarDisplay } from "../ui/AvatarDisplay";
 
 export function CheckoutPage() {
   const buttons = useDefaultNavButtons();
@@ -22,13 +22,15 @@ export function CheckoutPage() {
   return (
     <PageContainer maxWidth="md">
       <NavigationLayout buttons={buttons} />
-      <div className="space-y-4 text-center">
-        <AvatarRound
+      <div className="space-y-6 text-center">
+        <AvatarDisplay
           src={checkout.src}
           fallback="Checkout"
-          className="mx-auto w-45 h-45"
+          className="mx-auto w-44 h-44 p-3"
+          fit="cover"
+          rounded
         />
-        <PageTitle title="¡Compra Realizada!" className="mb-0"/>
+        <PageTitle title="¡Compra Realizada!"/>
         <CheckoutForm
           items={state.items}
           subtotal={subtotal}

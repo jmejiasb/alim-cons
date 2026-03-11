@@ -18,19 +18,21 @@ export function ContactPage() {
   return (
     <PageContainer maxWidth="md">
       <NavigationLayout buttons={buttons} />
-      <div className="grid gap-8 md:grid-cols-2">
+      <PageTitle title="Contáctanos" />
+      <div className="grid gap-8 items-start md:grid-cols-2">
         <div>
-          <PageTitle title="Contáctanos" />
           <ContactForm onSubmit={onSubmit} />
         </div>
 
-       <div className="relative hidden md:block aspect-2/3 w-full h-full">
-          <Image
-            fill
-            src={contactus.src}
-            alt={"Contactanos"}
-            className="rounded-lg object-contain"
-          />
+        <div className="hidden md:flex items-center justify-center">
+          <div className="relative aspect-2/3 w-full max-w-sm rounded-2xl p-6">
+            <Image
+              fill
+              src={contactus.src}
+              alt="Contáctanos"
+              className="object-contain"
+            />
+          </div>
         </div>
       </div>
     </PageContainer>

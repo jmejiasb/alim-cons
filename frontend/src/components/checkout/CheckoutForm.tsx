@@ -25,7 +25,7 @@ export function CheckoutForm({
   const isDisabled = loading || !name || !email;
 
   return (
-    <div className="mt-10 grid gap-8 md:grid-cols-2">
+    <div className="grid gap-10 md:grid-cols-2">
       <CheckoutContact
         name={name}
         email={email}

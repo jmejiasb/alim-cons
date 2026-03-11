@@ -4,7 +4,7 @@ import { PageTitle } from "../layout/PageTitle";
 import { BankDetailRow } from "./BankDetailRow";
 import { NavigationLayout } from "../layout/NavigationLayout";
 import wink from "@/assets/wink.webp"
-import { AvatarRound } from "../layout/AvatarRound";
+import { AvatarDisplay } from "../ui/AvatarDisplay";
 
 export function BankTransferDetails() {
   const buttons = useDefaultNavButtons()
@@ -12,7 +12,7 @@ export function BankTransferDetails() {
     <PageContainer maxWidth="md">
       <NavigationLayout buttons={buttons} />
       <div className="space-y- text-center">
-        <AvatarRound 
+        <AvatarDisplay 
           src={wink.src}
           fallback="RB"
           className="mx-auto h-26 w-26"
