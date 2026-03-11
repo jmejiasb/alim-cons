@@ -1,6 +1,6 @@
 export function PageTitle({ title }: { title: string }) {
   return (
-    <h1 className="max-w-xs text-xl font-semibold leading-10 tracking-tight text-emerald-800 dark:text-zinc-50 mb-10 mx-auto text-center">
+    <h1 className="mx-auto mb-10 max-w-xs text-center text-xl font-semibold tracking-tight text-primary">
       {title}
     </h1>
   );

@@ -11,31 +11,26 @@ interface NavButtonProps {
 }
 
 export function NavButton({ href, label, inverted = false }: NavButtonProps) {
-  const shadowBg = inverted
-    ? "bg-emerald-600 hover:bg-emerald-700 dark:bg-blue-900 dark:hover:bg-blue-950"
-    : "bg-gray-400 hover:bg-gray-500 dark:bg-slate-700 dark:hover:bg-slate-800";
+  const shadowBg = inverted ? "bg-primary/80" : "bg-primary/70";
 
   const btnBg = inverted
-    ? "bg-gray-200 hover:bg-gray-300 text-emerald-600 dark:bg-slate-700 dark:hover:bg-slate-800 dark:text-blue-600"
-    : "bg-emerald-500 hover:bg-emerald-600 text-gray-200 dark:bg-blue-900 dark:hover:bg-blue-950";
+    ? "bg-card text-primary hover:bg-card/90"
+    : "bg-primary text-primary-foreground hover:bg-primary/90";
 
   return (
-    <div className="inline-block relative group w-9/10">
+    <div className="inline-block relative group w-[90%]">
       <div
         className={cn(
-          "absolute inset-0 rounded-lg translate-x-1 translate-y-1",
+          "absolute inset-0 rounded-lg translate-x-1 translate-y-1 transition-transform",
           "group-hover:translate-x-0 group-hover:translate-y-0",
-          "transition-transform",
-          
-          shadowBg
+          shadowBg,
         )}
       />
       <Button
         asChild
         className={cn(
-          "relative px-8 py-2.5 uppercase tracking-wider rounded-lg w-full",
-          "transition-colors",
-          btnBg
+          "relative px-8 py-2.5 uppercase tracking-wider rounded-lg w-full transition-colors",
+          btnBg,
         )}
       >
         <Link href={href}>{label}</Link>
