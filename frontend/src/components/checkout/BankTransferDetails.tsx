@@ -11,7 +11,7 @@ export function BankTransferDetails() {
   return (
     <PageContainer maxWidth="md">
       <NavigationLayout buttons={buttons} />
-      <div className="space-y-8 text-center">
+      <div className="space-y- text-center">
         <AvatarRound 
           src={wink.src}
           fallback="RB"

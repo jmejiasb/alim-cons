@@ -22,13 +22,13 @@ export function CheckoutPage() {
   return (
     <PageContainer maxWidth="md">
       <NavigationLayout buttons={buttons} />
-      <PageTitle title="¡Compra Realizada!" />
-      <div className="space-y-8 text-center">
+      <div className="space-y-4 text-center">
         <AvatarRound
           src={checkout.src}
           fallback="Checkout"
-          className="mx-auto h-26 w-26"
+          className="mx-auto w-45 h-45"
         />
+        <PageTitle title="¡Compra Realizada!" className="mb-0"/>
         <CheckoutForm
           items={state.items}
           subtotal={subtotal}
