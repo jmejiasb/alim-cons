@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CirclePlus } from "lucide-react";
 import { IconButton } from "../ui/IconButton";
-import { Price } from "./Price";
+import { Price } from "../ui/Price";
 
 export interface EbookCardProps extends Omit<Ebook, "desc" | "url"> {
   onClick: () => void;

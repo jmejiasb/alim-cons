@@ -5,7 +5,7 @@ import { PageContainer } from "../layout/PageContainer";
 import type { Ebook } from "@/types/ebook";
 import { NavigationLayout } from "../layout/NavigationLayout";
 import { useDefaultNavButtons } from "@/hooks/useDefaultNavButtons";
-import { Price } from "./Price";
+import { Price } from "../ui/Price";
 
 interface EbookDetailPageProps {
   ebook: Ebook;
