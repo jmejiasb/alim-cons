@@ -36,7 +36,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <CartProvider>
-            <main className="flex min-h-screen w-full bg-background font-sans dark:bg-slate-900 md:items-center md:justify-center">
+            <main className="flex min-h-screen w-full bg-background font-sans md:items-center md:justify-center">
               {children}
               <CartDrawer />
             </main>
