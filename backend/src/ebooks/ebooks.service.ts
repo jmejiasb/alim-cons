@@ -14,12 +14,7 @@ export class EbooksService {
     private readonly storageService: StorageService,
   ) {}
 
-  async findAll(): Promise<Ebook[]> {
-    const url = await this.storageService.createSignedDownload(
-      'organizate-cuidarte/vs.pdf',
-    );
-
-    console.log(url);
+  findAll(): Promise<Ebook[]> {
     return this.repo.find();
   }
 
