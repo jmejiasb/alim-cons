@@ -1,23 +1,22 @@
 "use client";
-import { useState } from "react";
 import { PageContainer } from "../layout/PageContainer";
 import { NavigationLayout } from "../layout/NavigationLayout";
 import { PageTitle } from "../layout/PageTitle";
 import { useDefaultNavButtons } from "@/hooks/useDefaultNavButtons";
 import { useCart } from "@/context/CartContext";
 import { useCartTotals } from "@/hooks/useCartTotals";
-import { BankTransferDetails } from "./BankTransferDetails";
 import { CheckoutForm } from "./CheckoutForm";
 import checkout from "@/assets/checkout.webp";
 import { AvatarDisplay } from "../ui/AvatarDisplay";
+import { useRouter } from "next/router";
 
 export function CheckoutPage() {
+  const router = useRouter()
   const buttons = useDefaultNavButtons();
   const { state } = useCart();
   const { subtotal } = useCartTotals();
-  const [completed, setCompleted] = useState(false);
 
-  if (completed) return <BankTransferDetails />;
+  const handleComplete = (purchaseId: string) => router.push(`/checkout/success?id=${purchaseId}`)
 
   return (
     <PageContainer maxWidth="md">
@@ -30,11 +29,11 @@ export function CheckoutPage() {
           fit="cover"
           rounded
         />
-        <PageTitle title="¡Compra Realizada!"/>
+        <PageTitle title="¡Compra Realizada!" />
         <CheckoutForm
           items={state.items}
           subtotal={subtotal}
-          onCompleted={() => setCompleted(true)}
+          onCompleted={handleComplete}
         />
       </div>
     </PageContainer>

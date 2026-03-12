@@ -24,8 +24,8 @@ export function useCheckout() {
         })),
       };
 
-      await createPurchase(input);
-      return true;
+      const purchase = await createPurchase(input);
+      return purchase?.id ?? null;
     } finally {
       setLoading(false);
     }

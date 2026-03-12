@@ -6,7 +6,7 @@ import { CheckoutSummary } from "./CheckoutSummary";
 export interface CheckoutFormProps {
   items: CartItem[];
   subtotal: number;
-  onCompleted: () => void;
+  onCompleted: (purchaseId:string ) => void;
 }
 
 export function CheckoutForm({
@@ -18,8 +18,8 @@ export function CheckoutForm({
     useCheckout();
 
   const handleSubmit = async () => {
-    const ok = await createPurchase();
-    if (ok) onCompleted();
+    const purchaseId = await createPurchase();
+    if (purchaseId) onCompleted(purchaseId);
   };
 
   const isDisabled = loading || !name || !email;
