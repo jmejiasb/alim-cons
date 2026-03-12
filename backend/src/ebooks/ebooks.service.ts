@@ -4,21 +4,19 @@ import { Repository } from 'typeorm';
 import { Ebook } from './ebooks.entity';
 import { CreateEbookInput } from './dto/create-ebook.input';
 import { UpdateEbookInput } from './dto/update-ebook.input';
-import { StorageService } from 'src/common/storage/storage.service';
 
 @Injectable()
 export class EbooksService {
   constructor(
     @InjectRepository(Ebook)
     private readonly repo: Repository<Ebook>,
-    private readonly storageService: StorageService,
   ) {}
 
   findAll(): Promise<Ebook[]> {
     return this.repo.find();
   }
 
-  findById(id: string): Promise<Ebook | null> {
+  async findById(id: string): Promise<Ebook | null> {
     return this.repo.findOne({
       where: { id },
     });

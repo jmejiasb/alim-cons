@@ -3,10 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Ebook } from './ebooks.entity';
 import { EbookResolvers } from './ebooks.resolver';
 import { EbooksService } from './ebooks.service';
-import { StorageModule } from 'src/common/storage/storage.module';
+import { EmailModule } from 'src/common/email/email.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Ebook]), StorageModule],
+  imports: [TypeOrmModule.forFeature([Ebook])],
   controllers: [],
   providers: [EbookResolvers, EbooksService],
   exports: [EbooksService],

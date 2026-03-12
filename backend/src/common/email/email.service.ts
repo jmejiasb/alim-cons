@@ -51,16 +51,16 @@ export class EmailService {
   }
 
   async sendPurchaseConfirmationToCustomer(
-    customerEmail: string,
     customerName: string,
+    customerEmail: string,
   ) {
     const html = purchaseConfirmationTemplate(customerName);
     await this.sendEmail(customerEmail, 'Compra recibida', html);
   }
 
   async sendDownloadLinks(
-    customerEmail: string,
     customerName: string,
+    customerEmail: string,
     downloads: { title: string; url: string }[],
   ) {
     const html = downloadLinksTemplate(customerName, downloads);
