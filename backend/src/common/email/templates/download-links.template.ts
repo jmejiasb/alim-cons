@@ -12,7 +12,7 @@ export function downloadLinksTemplate(
            style="
              display:inline-block;
              padding:12px 20px;
-             background:#4f46e5;
+             background:#cb86db;
              color:white;
              text-decoration:none;
              border-radius:6px;
