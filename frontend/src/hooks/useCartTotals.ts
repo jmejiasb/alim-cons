@@ -4,7 +4,10 @@ export function useCartTotals() {
   const { state } = useCart();
 
   const subtotal = state.items.reduce((sum, item) => {
-    const price = item.ebook.salesPrice ?? item.ebook.regularPrice;
+    const price =
+      item.ebook.salesPrice && item.ebook.salesPrice > 0
+        ? item.ebook.salesPrice
+        : item.ebook.regularPrice;
     return sum + price;
   }, 0);
 

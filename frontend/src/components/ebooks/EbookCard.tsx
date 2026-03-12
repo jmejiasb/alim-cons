@@ -1,8 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import type { Ebook } from "@/types/ebook";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,15 +18,14 @@ export function EbookCard({
   salesPrice = 0,
   onClick,
 }: EbookCardProps) {
-
   return (
-    <Link href={`/ebooks/${id}`} className="block">
+    <Link href={`/ebooks/${id}`} className="block h-full">
       <Card
-        className={`w-full max-w-60 overflow-hidden rounded-2xl border border-border 
-        bg-card transition-all hover:-translate-y-1 hover:shadow-md`}
+        className="h-80 w-50 overflow-hidden rounded-2xl border border-border 
+        bg-card transition-all hover:-translate-y-1 hover:shadow-md sm:h-104"
       >
-        <CardContent className="p-4 flex flex-col gap-3 h-full">
-          <div className="relative w-full aspect-3/4 overflow-hidden rounded-xl">
+        <CardContent className="flex h-full flex-col gap-3 p-4">
+          <div className="relative aspect-3/4 overflow-hidden rounded-xl">
             <Image src={imgUrl} alt={title} fill className="object-cover" />
           </div>
 
@@ -39,10 +34,7 @@ export function EbookCard({
           </CardTitle>
 
           <div className="flex items-center justify-between mt-auto pt-2">
-            <Price
-              regularPrice={regularPrice}
-              salesPrice={salesPrice}
-            />
+            <Price regularPrice={regularPrice} salesPrice={salesPrice} />
 
             <IconButton
               variant="ghost"

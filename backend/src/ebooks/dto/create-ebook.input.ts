@@ -10,11 +10,11 @@ export class CreateEbookInput {
 
   @Field({ nullable: true })
   @IsString()
-  description?: string;
+  desc: string;
 
   @Field()
   @IsUrl()
-  url: string;
+  filePath: string;
 
   @Field()
   @IsUrl()
