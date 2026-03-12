@@ -11,10 +11,15 @@ export function buildEmailLayout(content: string) {
 
           ${content}
 
-          <p style="margin-top:40px;font-size:12px;color:#888;">
-            Si tienes problemas con los enlaces responde a este correo.
-          </p>
+          <footer style="margin-top:40px;padding-top:20px;border-top:1px solid #eee;font-size:12px;color:#888;text-align:center;">
+            <p style="margin:0;">
+              © ${new Date().getFullYear()} Reinnys Benitez
+            </p>
 
+            <p style="margin:6px 0 0 0;">
+              Este es un correo automático, por favor no respondas a este mensaje.
+            </p>
+          </footer>
         </td>
       </tr>
     </table>
