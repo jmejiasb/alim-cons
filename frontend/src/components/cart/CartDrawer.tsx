@@ -26,6 +26,10 @@ export function CartDrawer() {
     router.push("/checkout");
   }
 
+  function handleEmptyCartClick() {
+    closeDrawer();
+  }
+
   return (
     <Sheet open={state.isOpen} onOpenChange={closeDrawer}>
       <SheetContent className="flex flex-col w-full bg-linear-to-t from-card to-muted sm:max-w-lg p-8">
@@ -36,7 +40,7 @@ export function CartDrawer() {
         {/* Cart Items */}
         <div className="flex-1 overflow-y-auto py-4">
           {state.items.length === 0 ? (
-            <CartEmpty />
+            <CartEmpty onClick={handleEmptyCartClick} />
           ) : (
             <div className="space-y-4">
               {state.items.map((item) => (

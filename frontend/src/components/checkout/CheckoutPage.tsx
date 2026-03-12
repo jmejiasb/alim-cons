@@ -8,7 +8,7 @@ import { useCartTotals } from "@/hooks/useCartTotals";
 import { CheckoutForm } from "./CheckoutForm";
 import checkout from "@/assets/checkout.webp";
 import { AvatarDisplay } from "../ui/AvatarDisplay";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export function CheckoutPage() {
   const router = useRouter()
