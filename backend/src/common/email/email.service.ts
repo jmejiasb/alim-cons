@@ -4,8 +4,10 @@ import {
   adminNotificationTemplate,
   downloadLinksTemplate,
   purchaseConfirmationTemplate,
+  contactNotificationTemplate
 } from './templates';
 import { PurchaseItem } from 'src/purchases/purchase-item.entity';
+import { CreateContactInput } from 'src/contact/dto/create-contact.input';
 
 @Injectable()
 export class EmailService {
@@ -66,5 +68,15 @@ export class EmailService {
     const html = downloadLinksTemplate(customerName, downloads);
 
     await this.sendEmail(customerEmail, 'Tus ebooks están listos', html);
+  }
+
+  async sendContactNotificationToAdmin(input: CreateContactInput) {
+    const html = contactNotificationTemplate(input);
+
+    await this.sendEmail(
+      process.env.ADMIN_EMAIL!,
+      'Nuevo mensaje de contacto',
+      html,
+    );
   }
 }

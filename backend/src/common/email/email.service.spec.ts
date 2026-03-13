@@ -88,18 +88,13 @@ describe('EmailService', () => {
         items as any,
       );
 
-      expect(sendEmailSpy).toHaveBeenCalledTimes(1);
-      expect(sendEmailSpy).toHaveBeenCalledWith(
-        'admin@test.com',
-        'Nueva compra pendiente de verificación',
-        expect.stringContaining('Ali'),
-      );
+      const [to, subject, html] = sendEmailSpy.mock.calls[0];
 
-      expect(sendEmailSpy).toHaveBeenCalledWith(
-        'admin@test.com',
-        'Nueva compra pendiente de verificación',
-        expect.stringContaining('ali@test.com'),
-      );
+      expect(to).toBe('admin@test.com');
+      expect(subject).toBe('Nueva compra pendiente de verificación');
+      expect(html).toContain('Ali');
+      expect(html).toContain('ali@test.com');
+      expect(html).toContain('Clean Code');
     });
   });
 
@@ -109,10 +104,7 @@ describe('EmailService', () => {
         .spyOn(service, 'sendEmail')
         .mockResolvedValue(undefined);
 
-      await service.sendPurchaseConfirmationToCustomer(
-        'Ali',
-        'ali@test.com',
-      );
+      await service.sendPurchaseConfirmationToCustomer('Ali', 'ali@test.com');
 
       expect(sendEmailSpy).toHaveBeenCalledTimes(1);
       expect(sendEmailSpy).toHaveBeenCalledWith(
@@ -136,25 +128,41 @@ describe('EmailService', () => {
 
       await service.sendDownloadLinks('Ali', 'ali@test.com', downloads);
 
-      expect(sendEmailSpy).toHaveBeenCalledTimes(1);
-      expect(sendEmailSpy).toHaveBeenCalledWith(
-        'ali@test.com',
-        'Tus ebooks están listos',
-        expect.stringContaining('Ali'),
-      );
+      const [to, subject, html] = sendEmailSpy.mock.calls[0];
 
-      expect(sendEmailSpy).toHaveBeenCalledWith(
-        'ali@test.com',
-        'Tus ebooks están listos',
-        expect.stringContaining('Clean Code'),
-      );
-
-      expect(sendEmailSpy).toHaveBeenCalledWith(
-        'ali@test.com',
-        'Tus ebooks están listos',
-        expect.stringContaining('https://download-1.com'),
-      );
+      expect(to).toBe('ali@test.com');
+      expect(subject).toBe('Tus ebooks están listos');
+      expect(html).toContain('Ali');
+      expect(html).toContain('Clean Code');
+      expect(html).toContain('https://download-1.com');
+      expect(html).toContain('Refactoring');
+      expect(html).toContain('https://download-2.com');
     });
   });
 
+  describe('sendContactNotification', () => {
+    it('should send the contact notification to admin email', async () => {
+      const sendEmailSpy = jest
+        .spyOn(service, 'sendEmail')
+        .mockResolvedValue(undefined);
+
+      const mockInput = {
+        name: 'Ali',
+        email: 'ali@test.com',
+        phone: '+569123456789',
+        message: 'Test',
+      };
+
+      await service.sendContactNotificationToAdmin(mockInput);
+
+      const [to, subject, html] = sendEmailSpy.mock.calls[0];
+
+      expect(to).toBe('admin@test.com');
+      expect(subject).toBe('Nuevo mensaje de contacto');
+      expect(html).toContain('Ali');
+      expect(html).toContain('ali@test.com');
+      expect(html).toContain('+569123456789');
+      expect(html).toContain('Test');
+    });
+  });
 });
