@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { EbooksModule } from './ebooks/ebooks.module';
 import { PurchasesModule } from './purchases/purchase.module';
 import { StorageModule } from './common/storage/storage.module';
+import { ContactModule } from './contact/contact.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { StorageModule } from './common/storage/storage.module';
     EbooksModule,
     PurchasesModule,
     StorageModule,
+    ContactModule
   ],
   controllers: [],
   providers: [],
