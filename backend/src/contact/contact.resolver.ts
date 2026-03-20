@@ -4,16 +4,16 @@ import { Contact } from './contact.entity';
 import { CreateContactInput } from './dto/create-contact.input';
 
 @Resolver(() => Contact)
-export class EbookResolvers {
+export class ContactResolvers {
   constructor(private readonly service: ContactsService) {}
 
   @Query(() => [Contact])
-  ebooks() {
+  contacts() {
     return this.service.findAll();
   }
 
   @Mutation(() => Contact)
-  createEbook(@Args('input') input: CreateContactInput) {
+  createContact(@Args('input') input: CreateContactInput) {
     return this.service.create(input);
   }
 }
