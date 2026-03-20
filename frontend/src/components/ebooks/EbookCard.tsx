@@ -26,7 +26,14 @@ export function EbookCard({
       >
         <CardContent className="flex h-full flex-col gap-3 p-4">
           <div className="relative aspect-3/4 overflow-hidden rounded-xl">
-            <Image src={imgUrl} alt={title} fill className="object-cover" />
+            <Image
+              src={imgUrl}
+              alt={title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 160px, 200px"
+              priority
+            />
           </div>
 
           <CardTitle className="mt-3 font-semibold leading-tight line-clamp-2">

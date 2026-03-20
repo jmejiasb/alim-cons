@@ -6,14 +6,16 @@ import Image from "next/image";
 import { ContactForm } from "./ContactForm";
 import { useDefaultNavButtons } from "@/hooks/useDefaultNavButtons";
 import { ContactFormData } from "@/schemas/contactSchema";
-import { postContactData } from "@/repositories/contactRepository";
+import { createContact } from "@/repositories/contactRepository";
 import { PageTitle } from "../layout/PageTitle";
 import contactus from "@/assets/contactus.webp";
 
 export function ContactPage() {
   const buttons = useDefaultNavButtons();
 
-  const onSubmit = async (data: ContactFormData) => postContactData(data);
+  const onSubmit = async (data: ContactFormData) => {
+    await createContact(data);
+  };
 
   return (
     <PageContainer maxWidth="md">
@@ -29,8 +31,10 @@ export function ContactPage() {
             <Image
               fill
               src={contactus.src}
+              priority
               alt="Contáctanos"
               className="object-contain"
+              sizes="(max-width: 768px) 0px, (max-width: 1024px) 40vw, 384px"
             />
           </div>
         </div>

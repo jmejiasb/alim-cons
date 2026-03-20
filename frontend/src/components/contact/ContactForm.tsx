@@ -14,21 +14,42 @@ import {
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
 import { FormInputField } from "../ui/FormInputField";
+import { toast } from "sonner";
 
 interface ContactFormProps {
   onSubmit: (data: ContactFormData) => Promise<void>;
 }
 
 export function ContactForm({ onSubmit }: ContactFormProps) {
+
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: { name: "", email: "", message: "", phone: "" },
   });
 
+  const handleSubmit = async (data: ContactFormData) => {
+    try {
+
+      await onSubmit(data);
+
+      form.reset({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+
+      toast.success("Mensaje enviado correctamente");
+    } catch (error) {
+      console.error(error);
+      toast.error("No se pudo enviar el mensaje");
+    }
+  };
+
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={form.handleSubmit(handleSubmit)}
         className="space-y-5 w-full rounded-2xl border border-border bg-card p-6 shadow-sm"
       >
         <FormInputField<ContactFormData>
