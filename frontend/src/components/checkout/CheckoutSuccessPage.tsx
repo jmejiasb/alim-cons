@@ -5,7 +5,7 @@ import { NavigationLayout } from "../layout/NavigationLayout";
 import { AvatarDisplay } from "../ui/AvatarDisplay";
 import { PageContainer } from "../layout/PageContainer";
 import { useDefaultNavButtons } from "@/hooks/useDefaultNavButtons";
-import wink from "@/assets/wink.webp";
+import about from "@/assets/about.webp";
 
 export function CheckoutSuccessPage() {
   const buttons = useDefaultNavButtons();
@@ -14,7 +14,7 @@ export function CheckoutSuccessPage() {
       <NavigationLayout buttons={buttons} />
       <div className="space-y-8 text-center">
         <AvatarDisplay
-          src={wink.src}
+          src={about.src}
           fallback="RB"
           className="mx-auto h-26 w-26"
         />
