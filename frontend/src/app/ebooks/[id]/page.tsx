@@ -6,8 +6,10 @@ interface PageProps {
 	params: { id: string };
 }
 
+export const dynamic = "force-dynamic";
+
 export default async function EbookPageById({ params }: PageProps) {
-	const { id } = await params;
+	const { id } = params;
 
 	const ebook = await getEbookById(id);
 
