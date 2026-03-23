@@ -1,17 +1,19 @@
 import { notFound } from "next/navigation";
-import { getEbookById } from "@/repositories/ebookRepository";
 import { EbookDetailPage } from "@/components/ebooks/EbookDetailPage";
+import { getEbookById } from "@/repositories/ebookRepository";
 
 interface PageProps {
-  params: { id: string };
+	params: { id: string };
 }
 
+export const dynamic = "force-dynamic";
+
 export default async function EbookPageById({ params }: PageProps) {
-  const { id } = await params;
+	const { id } = params;
 
-  const ebook = await getEbookById(id);
+	const ebook = await getEbookById(id);
 
-  if (!ebook) notFound();
+	if (!ebook) notFound();
 
-  return <EbookDetailPage ebook={ebook} />;
+	return <EbookDetailPage ebook={ebook} />;
 }

@@ -1,5 +1,5 @@
 export function getAboutText() {
-  return `
+	return `
     Soy Reinnys
     Y sé lo que es querer empezar a cuidarte, organizarte y sentirte mejor…
     pero no saber cómo hacerlo de forma simple y sostenible.

@@ -1,3 +1,3 @@
 export function PurchasesTab() {
-  return "this is purchases";
+	return "this is purchases";
 }

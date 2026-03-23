@@ -1,6 +1,5 @@
-import { CheckoutPage } from "@/components/checkout/CheckoutPage"
+import { CheckoutPage } from "@/components/checkout/CheckoutPage";
 
-export default async function Checkout () {
-
-  return <CheckoutPage />
+export default async function Checkout() {
+	return <CheckoutPage />;
 }

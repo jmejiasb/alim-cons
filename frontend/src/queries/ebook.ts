@@ -1,4 +1,4 @@
-import { gql } from "graphql-request"
+import { gql } from "graphql-request";
 
 export const GET_EBOOKS = gql`
   query GetEbooks {
@@ -11,7 +11,7 @@ export const GET_EBOOKS = gql`
       salesPrice
     }
   }
-`
+`;
 
 export const GET_EBOOK = gql`
   query GetEbook($id: String!) {
@@ -24,4 +24,4 @@ export const GET_EBOOK = gql`
       salesPrice
     }
   }
-`
+`;
