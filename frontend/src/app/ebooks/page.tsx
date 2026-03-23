@@ -1,8 +1,8 @@
-import { getEbooks } from "@/repositories/ebookRepository";
 import { EbookPage } from "@/components/ebooks/EbookPage";
+import { getEbooks } from "@/repositories/ebookRepository";
 
 export default async function Ebooks() {
-  const ebooks = await getEbooks();
+	const ebooks = await getEbooks();
 
-  return <EbookPage ebooks={ebooks} />;
+	return <EbookPage ebooks={ebooks} />;
 }

@@ -1,3 +1,3 @@
 export function ContactTab() {
-  return "this is contact"
+	return "this is contact";
 }

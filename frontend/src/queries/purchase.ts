@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request'
+import { gql } from "graphql-request";
 
 export const CREATE_PURCHASE = gql`
   mutation CreatePurchase($input: CreatePurchaseInput!) {
@@ -7,4 +7,4 @@ export const CREATE_PURCHASE = gql`
       status
     }
   }
-`
+`;
