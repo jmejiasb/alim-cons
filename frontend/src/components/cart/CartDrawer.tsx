@@ -8,7 +8,7 @@ import {
 	SheetHeader,
 	SheetTitle,
 } from "@/components/ui/sheet";
-import { useCart } from "@/context/CartContext";
+import { useCartContext } from "@/context/CartContext";
 import { useCartActions } from "@/hooks/useCartActions";
 import { useCartTotals } from "@/hooks/useCartTotals";
 import { formatCLP } from "@/utils/formatClp";
@@ -17,7 +17,7 @@ import { CartItem } from "./CartItem";
 
 export function CartDrawer() {
 	const router = useRouter();
-	const { state } = useCart();
+	const { state } = useCartContext();
 	const { closeDrawer } = useCartActions();
 	const { subtotal, itemCount } = useCartTotals();
 

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useCart } from "@/context/CartContext";
+import { useCartContext } from "@/context/CartContext";
 import { createPurchase } from "@/repositories/purchaseRepository";
 import type { CreatePurchaseInput } from "@/types/purchase";
 
 export function useCheckout() {
-	const { state } = useCart();
+	const { state } = useCartContext();
 
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");

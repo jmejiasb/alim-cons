@@ -1,7 +1,7 @@
-import { useCart } from "@/context/CartContext";
+import { useCartContext } from "@/context/CartContext";
 
 export function useCartTotals() {
-	const { state } = useCart();
+	const { state } = useCartContext();
 
 	const subtotal = state.items.reduce((sum, item) => {
 		const price =

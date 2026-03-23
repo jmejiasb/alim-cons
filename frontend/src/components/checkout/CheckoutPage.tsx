@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import checkout from "@/assets/checkout.webp";
-import { useCart } from "@/context/CartContext";
+import { useCartContext } from "@/context/CartContext";
 import { useCartTotals } from "@/hooks/useCartTotals";
 import { useDefaultNavButtons } from "@/hooks/useDefaultNavButtons";
 import { NavigationLayout } from "../layout/NavigationLayout";
@@ -13,7 +13,7 @@ import { CheckoutForm } from "./CheckoutForm";
 export function CheckoutPage() {
 	const router = useRouter();
 	const buttons = useDefaultNavButtons();
-	const { state } = useCart();
+	const { state } = useCartContext();
 	const { subtotal } = useCartTotals();
 
 	const handleComplete = (purchaseId: string) =>

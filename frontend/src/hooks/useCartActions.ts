@@ -1,8 +1,8 @@
-import { useCart } from "@/context/CartContext";
+import { useCartContext } from "@/context/CartContext";
 import type { Ebook } from "@/types/ebook";
 
 export function useCartActions() {
-	const { dispatch } = useCart();
+	const { dispatch } = useCartContext();
 
 	return {
 		addItem: (ebook: Ebook) => dispatch({ type: "ADD_ITEM", payload: ebook }),
