@@ -1,99 +1,99 @@
-import { renderHook, act } from "@testing-library/react";
-import { useCartActions } from "./useCartActions";
+import { act, renderHook } from "@testing-library/react";
 import { useCartContext } from "@/context/CartContext";
-import { Ebook } from "@/types/ebook";
+import type { Ebook } from "@/types/ebook";
+import { useCartActions } from "./useCartActions";
 
 jest.mock("@/context/CartContext", () => ({
-  useCartContext: jest.fn(),
+	useCartContext: jest.fn(),
 }));
 
 describe("useCartActions", () => {
-  const dispatch = jest.fn();
+	const dispatch = jest.fn();
 
-  beforeEach(() => {
-    jest.clearAllMocks();
-    (useCartContext as jest.Mock).mockReturnValue({ dispatch });
-  });
+	beforeEach(() => {
+		jest.clearAllMocks();
+		(useCartContext as jest.Mock).mockReturnValue({ dispatch });
+	});
 
-  it("dispatches ADD_ITEM", () => {
-    const ebook = {
-      id: "1",
-      title: "Test ebook",
-      regularPrice: 1000,
-    };
+	it("dispatches ADD_ITEM", () => {
+		const ebook = {
+			id: "1",
+			title: "Test ebook",
+			regularPrice: 1000,
+		};
 
-    const { result } = renderHook(() => useCartActions());
+		const { result } = renderHook(() => useCartActions());
 
-    act(() => {
-      result.current.addItem(ebook as Ebook);
-    });
+		act(() => {
+			result.current.addItem(ebook as Ebook);
+		});
 
-    expect(dispatch).toHaveBeenCalledWith({
-      type: "ADD_ITEM",
-      payload: ebook,
-    });
-  });
+		expect(dispatch).toHaveBeenCalledWith({
+			type: "ADD_ITEM",
+			payload: ebook,
+		});
+	});
 
-  it("dispatches REMOVE_ITEM", () => {
-    const { result } = renderHook(() => useCartActions());
+	it("dispatches REMOVE_ITEM", () => {
+		const { result } = renderHook(() => useCartActions());
 
-    act(() => {
-      result.current.removeItem("1");
-    });
+		act(() => {
+			result.current.removeItem("1");
+		});
 
-    expect(dispatch).toHaveBeenCalledWith({
-      type: "REMOVE_ITEM",
-      payload: "1",
-    });
-  });
+		expect(dispatch).toHaveBeenCalledWith({
+			type: "REMOVE_ITEM",
+			payload: "1",
+		});
+	});
 
-  it("dispatches CLEAR_CART", () => {
-    const { result } = renderHook(() => useCartActions());
+	it("dispatches CLEAR_CART", () => {
+		const { result } = renderHook(() => useCartActions());
 
-    act(() => {
-      result.current.clearCart();
-    });
+		act(() => {
+			result.current.clearCart();
+		});
 
-    expect(dispatch).toHaveBeenCalledWith({
-      type: "CLEAR_CART",
-    });
-  });
+		expect(dispatch).toHaveBeenCalledWith({
+			type: "CLEAR_CART",
+		});
+	});
 
-  it("dispatches TOGGLE_DRAWER", () => {
-    const { result } = renderHook(() => useCartActions());
+	it("dispatches TOGGLE_DRAWER", () => {
+		const { result } = renderHook(() => useCartActions());
 
-    act(() => {
-      result.current.toggleDrawer();
-    });
+		act(() => {
+			result.current.toggleDrawer();
+		});
 
-    expect(dispatch).toHaveBeenCalledWith({
-      type: "TOGGLE_DRAWER",
-    });
-  });
+		expect(dispatch).toHaveBeenCalledWith({
+			type: "TOGGLE_DRAWER",
+		});
+	});
 
-  it("dispatches SET_DRAWER true", () => {
-    const { result } = renderHook(() => useCartActions());
+	it("dispatches SET_DRAWER true", () => {
+		const { result } = renderHook(() => useCartActions());
 
-    act(() => {
-      result.current.openDrawer();
-    });
+		act(() => {
+			result.current.openDrawer();
+		});
 
-    expect(dispatch).toHaveBeenCalledWith({
-      type: "SET_DRAWER",
-      payload: true,
-    });
-  });
+		expect(dispatch).toHaveBeenCalledWith({
+			type: "SET_DRAWER",
+			payload: true,
+		});
+	});
 
-  it("dispatches SET_DRAWER false", () => {
-    const { result } = renderHook(() => useCartActions());
+	it("dispatches SET_DRAWER false", () => {
+		const { result } = renderHook(() => useCartActions());
 
-    act(() => {
-      result.current.closeDrawer();
-    });
+		act(() => {
+			result.current.closeDrawer();
+		});
 
-    expect(dispatch).toHaveBeenCalledWith({
-      type: "SET_DRAWER",
-      payload: false,
-    });
-  });
+		expect(dispatch).toHaveBeenCalledWith({
+			type: "SET_DRAWER",
+			payload: false,
+		});
+	});
 });
