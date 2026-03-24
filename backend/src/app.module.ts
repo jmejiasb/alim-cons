@@ -16,6 +16,7 @@ import { ContactModule } from './contact/contact.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
+      context: ({ req }) => ({ req }),
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',

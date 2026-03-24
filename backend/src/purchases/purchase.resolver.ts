@@ -4,6 +4,8 @@ import { PurchasesService } from './purchase.service';
 import { PurchaseStatus } from './purchase-status.enum';
 import { CreatePurchaseInput } from './dto/create-purchase.input';
 import { UpdatePurchaseInput } from './dto/update-purchase.input';
+import { UseGuards } from '@nestjs/common';
+import { ApiKeyGuard } from 'src/guards/api-key.guard';
 
 @Resolver(() => Purchase)
 export class PurchasesResolver {
@@ -31,6 +33,7 @@ export class PurchasesResolver {
     return this.purchasesService.create(input);
   }
 
+  @UseGuards(ApiKeyGuard)
   @Mutation(() => Purchase)
   updatePurchase(@Args('input') input: UpdatePurchaseInput): Promise<Purchase> {
     return this.purchasesService.update(input);
