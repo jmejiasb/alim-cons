@@ -3,13 +3,11 @@ import { EbookDetailPage } from "@/components/ebooks/EbookDetailPage";
 import { getEbookById } from "@/repositories/ebookRepository";
 
 interface PageProps {
-	params: { id: string };
+	params: Promise<{ id: string }>;
 }
 
-export const dynamic = "force-dynamic";
-
 export default async function EbookPageById({ params }: PageProps) {
-	const { id } = params;
+	const { id } = await params;
 
 	const ebook = await getEbookById(id);
 
