@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Alimentacion Consciente Website
 
-## Getting Started
+Website for selling ebooks, built with a modern full-stack setup using **Next.js**, **NestJS**, and **GraphQL**. The project is split into a frontend deployed on **Vercel** and a backend deployed on **Railway**, using **Supabase** for both the database and file storage. :contentReference[oaicite:0]{index=0} :contentReference[oaicite:1]{index=1}
 
-First, run the development server:
+## Tech Stack
+
+### Frontend
+
+- Next.js
+- TypeScript
+- GraphQL client
+- Tailwind CSS
+- shadcn/ui
+
+### Backend
+
+- NestJS
+- GraphQL
+- TypeORM
+- PostgreSQL
+- Nodemailer
+
+### Infrastructure
+
+- Frontend: Vercel
+- Backend: Google Cloud Run (Docker)
+- Database: Supabase
+- File storage: Supabase Storage :contentReference[oaicite:2]{index=2}
+
+---
+
+## Features
+
+- Browse available ebooks
+- View ebook details
+- Create purchases through GraphQL
+- Store purchase items with the price snapshot at purchase time
+- Contact form submission
+- Email notifications for:
+  - new purchase to admin
+  - purchase confirmation to customer
+  - contact messages to admin
+  - ebook download links after purchase completion
+- Signed download URLs generated from Supabase Storage :contentReference[oaicite:3]{index=3} :contentReference[oaicite:4]{index=4} :contentReference[oaicite:5]{index=5} :contentReference[oaicite:6]{index=6} :contentReference[oaicite:7]{index=7}
+
+---
+
+## Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+frontend/
+backend/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Documentation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Frontend setup](./frontend/README.md)
+- [Backend setup](./backend/README.md)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Quick Start
 
-To learn more about Next.js, take a look at the following resources:
+### Frontend
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Backend
 
-## Deploy on Vercel
+```bash
+cd backend
+npm install
+npm run start:dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Frontend: Vercel
+- Backend: Railway
+- Database: Supabase
+- Storage: Supabase Storage
