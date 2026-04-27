@@ -89,7 +89,7 @@ export class PurchasesService {
 
         return this.purchaseItemRepo.create({
           ebook,
-          priceAtPurchase: ebook.salesPrice ?? ebook.regularPrice,
+          priceAtPurchase: (ebook.salesPrice ?? 0) > 0 ? ebook.salesPrice : ebook.regularPrice,
         });
       }),
     );

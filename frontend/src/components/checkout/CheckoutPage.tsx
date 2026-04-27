@@ -9,15 +9,19 @@ import { PageContainer } from "../layout/PageContainer";
 import { PageTitle } from "../layout/PageTitle";
 import { AvatarDisplay } from "../ui/AvatarDisplay";
 import { CheckoutForm } from "./CheckoutForm";
+import { useCartActions } from "@/hooks/useCartActions";
 
 export function CheckoutPage() {
 	const router = useRouter();
 	const buttons = useDefaultNavButtons();
 	const { state } = useCartContext();
+	const { clearCart } = useCartActions()
 	const { subtotal } = useCartTotals();
 
-	const handleComplete = (purchaseId: string) =>
+	const handleComplete = (purchaseId: string) => {
+		clearCart()
 		router.push(`/checkout/success?id=${purchaseId}`);
+	}
 
 	return (
 		<PageContainer maxWidth="md">
