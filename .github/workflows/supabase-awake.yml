@@ -1,0 +1,18 @@
+name: Keep Supabase Awake
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping GraphQL
+        run: |
+          curl -X POST "${{ secrets.GRAPHQL_ENDPOINT }}" \
+            -H "Content-Type: application/json" \
+            --data '{"query":"query KeepAlive { ebooks { id } }"}' \
+            --fail
