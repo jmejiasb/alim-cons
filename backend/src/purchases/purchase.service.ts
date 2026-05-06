@@ -35,7 +35,7 @@ export class PurchasesService {
     const purchase = this.repo.create({ ...input, items });
     const savedPurchase = await this.repo.save(purchase);
 
-    await this.sendPurchaseCreatedEmails(input, items);
+    void this.sendPurchaseCreatedEmails(input, items);
 
     return savedPurchase;
   }

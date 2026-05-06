@@ -79,4 +79,9 @@ export class EmailService {
       html,
     );
   }
+
+  async verifyConnection(): Promise<boolean> {
+    await this.transporter.verify();
+    return true;
+  }
 }
