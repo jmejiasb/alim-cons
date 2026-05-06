@@ -217,7 +217,9 @@ describe('PurchasesService', () => {
         ...createdPurchase,
       };
 
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const consoleErrorSpy = jest
+        .spyOn(console, 'error')
+        .mockImplementation(() => undefined);
 
       (ebooksService.findByIdOrFail as jest.Mock).mockResolvedValue(ebook);
       (purchaseItemRepo.create as jest.Mock).mockReturnValue(createdItem);
@@ -232,8 +234,11 @@ describe('PurchasesService', () => {
 
       const result = await service.create(input as any);
 
+      await Promise.resolve();
+      await Promise.resolve();
+
       expect(result).toEqual(savedPurchase);
-      expect(console.error).toHaveBeenCalledWith(
+      expect(consoleErrorSpy).toHaveBeenCalledWith(
         'Failed to send purchase creation emails',
         expect.any(Error),
       );
