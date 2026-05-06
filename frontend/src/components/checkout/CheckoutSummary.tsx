@@ -18,7 +18,6 @@ export function CheckoutSummary({
 	onSubmit,
 }: CheckoutSummaryProps) {
 
-	console.log(items)
 	return (
 		<div className="rounded-lg border p-6 space-y-4 bg-card">
 			<h2 className="font-semibold text-lg">Resumen</h2>
