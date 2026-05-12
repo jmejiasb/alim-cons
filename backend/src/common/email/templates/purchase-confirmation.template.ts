@@ -7,15 +7,13 @@ export function purchaseConfirmationTemplate(customerName: string) {
     <p>Hola <strong>${customerName}</strong>,</p>
 
     <p>
-      Hemos recibido tu solicitud de compra correctamente. En breve revisaremos la transferencia para confirmar el pago.
+      ¡Tu solicitud de compra fue recibida correctamente! ✨
     </p>
 
     <p>
-      Las compras realizadas dentro del horario de atención se confirman normalmente durante el mismo día, generalmente dentro de 1 a 2 horas.
-    </p>
-    
-    <p>
-      Si realizaste la transferencia después de las 20:00 hrs (hora chile), es posible que la confirmación se realice al día hábil siguiente.
+      En breve validaremos tu transferencia para confirmar el pago. 
+      Las compras realizadas antes de las 20:00 hrs suelen confirmarse el mismo día (aprox. 1 a 2 horas).
+      Después de ese horario, la confirmación puede realizarse el siguiente día hábil.
     </p>
 
     <p>
@@ -23,7 +21,7 @@ export function purchaseConfirmationTemplate(customerName: string) {
     </p>
 
     <p>
-      Gracias por tu compra.
+      ¡Gracias por tu compra!
     </p>
   `;
 

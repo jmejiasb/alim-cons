@@ -21,9 +21,14 @@ export function ContactPage() {
 		<PageContainer maxWidth="md">
 			<NavigationLayout buttons={buttons} />
 			<PageTitle title="Contáctanos" className="mb-4"/>
-			<p className="text-center mb-4 text-accent-foreground">
-				En esta asesoría puedes solicitar orientación en entrenamiento, clases de zumba, acompañamiento en gimnasio o coaching nutricional, todo adaptado a tus objetivos, nivel y estilo de vida.
-			</p>
+			<div className="space-y-4 text-center mb-2 text-muted-foreground">
+				<p>
+					En esta asesoría puedes solicitar orientación en entrenamiento, clases de zumba, acompañamiento en gimnasio o coaching nutricional, todo adaptado a tus objetivos, nivel y estilo de vida.
+				</p>
+				<p>
+					Completa el formulario y nos pondremos en contacto contigo en las proximas 24h.
+				</p>
+			</div>
 			<div className="grid gap-8 items-start mt-4 not-only:md:grid-cols-2 ">
 				<div>
 					<ContactForm onSubmit={onSubmit} />
