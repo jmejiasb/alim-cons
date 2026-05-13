@@ -10,9 +10,10 @@ import { EbookCard } from "./EbookCard";
 
 interface EbookPageProps {
 	ebooks: readonly Ebook[];
+	usdRate: number | null;
 }
 
-export function EbookPage({ ebooks }: EbookPageProps) {
+export function EbookPage({ ebooks, usdRate }: EbookPageProps) {
 	const buttons = useDefaultNavButtons();
 
 	const { addItem } = useCartActions();
@@ -30,6 +31,7 @@ export function EbookPage({ ebooks }: EbookPageProps) {
 						imgUrl={ebook.imgUrl}
 						regularPrice={ebook.regularPrice}
 						salesPrice={ebook.salesPrice ?? 0}
+						usdRate={usdRate}
 						onClick={() => addItem(ebook)}
 					/>
 				))}

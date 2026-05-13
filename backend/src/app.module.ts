@@ -7,6 +7,7 @@ import { EbooksModule } from './ebooks/ebooks.module';
 import { PurchasesModule } from './purchases/purchase.module';
 import { StorageModule } from './common/storage/storage.module';
 import { ContactModule } from './contact/contact.module';
+import { CurrencyModule } from './currency/currency.module';
 
 @Module({
   imports: [
@@ -32,7 +33,8 @@ import { ContactModule } from './contact/contact.module';
     EbooksModule,
     PurchasesModule,
     StorageModule,
-    ContactModule
+    ContactModule,
+    CurrencyModule
   ],
   controllers: [],
   providers: [],

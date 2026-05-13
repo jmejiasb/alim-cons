@@ -12,16 +12,17 @@ import { Price } from "../ui/Price";
 
 interface EbookDetailPageProps {
 	ebook: Ebook;
+	usdRate: number | null;
 }
 
-export function EbookDetailPage({ ebook }: EbookDetailPageProps) {
+export function EbookDetailPage({ ebook, usdRate }: EbookDetailPageProps) {
 	const buttons = useDefaultNavButtons();
 	const { addItem } = useCartActions();
 
 	return (
 		<PageContainer maxWidth="lg">
 			<NavigationLayout buttons={buttons} />
-			<div className="mt-5 grid items-start gap-6 md:grid-cols-2">
+			<div className="mt-5 grid content-between gap-6 md:grid-cols-2">
 				<div className="relative aspect-2/3 rounded-2xl border border-border bg-card md:max-h-180">
 					<Image
 						fill
@@ -44,6 +45,7 @@ export function EbookDetailPage({ ebook }: EbookDetailPageProps) {
 						<Price
 							regularPrice={ebook.regularPrice}
 							salesPrice={ebook.salesPrice}
+							usdRate={usdRate}
 							className="text-2xl"
 						/>
 
