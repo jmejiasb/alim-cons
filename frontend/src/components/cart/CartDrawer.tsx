@@ -9,9 +9,11 @@ import {
 	SheetTitle,
 } from "@/components/ui/sheet";
 import { useCartContext } from "@/context/CartContext";
+import { useCurrency } from "@/context/CurrencyContext";
 import { useCartActions } from "@/hooks/useCartActions";
 import { useCartTotals } from "@/hooks/useCartTotals";
 import { formatCLP } from "@/utils/formatClp";
+import { formatUsd } from "@/utils/formatUsd";
 import { CartEmpty } from "./CartEmpty";
 import { CartItem } from "./CartItem";
 
@@ -20,6 +22,7 @@ export function CartDrawer() {
 	const { state } = useCartContext();
 	const { closeDrawer } = useCartActions();
 	const { subtotal, itemCount } = useCartTotals();
+	const { usdRate } = useCurrency();
 
 	function handleCheckout() {
 		closeDrawer();
@@ -29,6 +32,8 @@ export function CartDrawer() {
 	function handleEmptyCartClick() {
 		closeDrawer();
 	}
+
+	const formattedUsdSubtotal = usdRate ? formatUsd(subtotal / usdRate) : null;
 
 	return (
 		<Sheet open={state.isOpen} onOpenChange={closeDrawer}>
@@ -53,10 +58,19 @@ export function CartDrawer() {
 				{/* Footer */}
 				{state.items.length > 0 && (
 					<div className="border-t pt-4 space-y-4">
-						<div className="flex items-center justify-between text-lg font-semibold">
-							<span>Subtotal</span>
-							<span>{formatCLP(subtotal)}</span>
+						<div className="space-y-1">
+							<div className="flex items-center justify-between text-lg font-semibold">
+								<span>Subtotal</span>
+								<span>{formatCLP(subtotal)}</span>
+							</div>
+							{formattedUsdSubtotal && (
+								<div className="flex items-center justify-between text-sm text-muted-foreground">
+									<span></span>
+									<span>US{formattedUsdSubtotal}</span>
+								</div>
+							)}
 						</div>
+
 						<Button
 							className="w-full"
 							size="lg"

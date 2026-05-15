@@ -43,7 +43,11 @@ export function EbookCard({
 					</CardTitle>
 
 					<div className="flex items-center justify-between mt-auto pt-2">
-						<Price regularPrice={regularPrice} salesPrice={salesPrice} usdRate={usdRate}/>
+						<Price
+							regularPrice={regularPrice}
+							salesPrice={salesPrice}
+							usdRate={usdRate}
+						/>
 
 						<IconButton
 							variant="ghost"

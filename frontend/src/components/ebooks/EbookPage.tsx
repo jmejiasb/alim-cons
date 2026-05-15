@@ -1,5 +1,6 @@
 "use client";
 
+import { useCurrency } from "@/context/CurrencyContext";
 import { useCartActions } from "@/hooks/useCartActions";
 import { useDefaultNavButtons } from "@/hooks/useDefaultNavButtons";
 import type { Ebook } from "@/types/ebook";
@@ -10,13 +11,13 @@ import { EbookCard } from "./EbookCard";
 
 interface EbookPageProps {
 	ebooks: readonly Ebook[];
-	usdRate: number | null;
 }
 
-export function EbookPage({ ebooks, usdRate }: EbookPageProps) {
+export function EbookPage({ ebooks }: EbookPageProps) {
 	const buttons = useDefaultNavButtons();
 
 	const { addItem } = useCartActions();
+	const { usdRate } = useCurrency();
 
 	return (
 		<PageContainer maxWidth="xl">
