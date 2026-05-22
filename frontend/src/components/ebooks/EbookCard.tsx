@@ -7,6 +7,7 @@ import { IconButton } from "../ui/IconButton";
 import { Price } from "../ui/Price";
 
 export interface EbookCardProps extends Omit<Ebook, "desc" | "url"> {
+	usdRate: number | null;
 	onClick: () => void;
 }
 
@@ -16,6 +17,7 @@ export function EbookCard({
 	imgUrl,
 	regularPrice,
 	salesPrice = 0,
+	usdRate = null,
 	onClick,
 }: EbookCardProps) {
 	return (
@@ -41,7 +43,11 @@ export function EbookCard({
 					</CardTitle>
 
 					<div className="flex items-center justify-between mt-auto pt-2">
-						<Price regularPrice={regularPrice} salesPrice={salesPrice} />
+						<Price
+							regularPrice={regularPrice}
+							salesPrice={salesPrice}
+							usdRate={usdRate}
+						/>
 
 						<IconButton
 							variant="ghost"

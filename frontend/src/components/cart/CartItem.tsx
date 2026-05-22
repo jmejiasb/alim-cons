@@ -3,6 +3,7 @@
 import { X } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { useCurrency } from "@/context/CurrencyContext";
 import { useCartActions } from "@/hooks/useCartActions";
 import type { CartItem as CartItemType } from "@/types/cart";
 import { Price } from "../ui/Price";
@@ -13,6 +14,7 @@ interface CartItemProps {
 
 export function CartItem({ item }: CartItemProps) {
 	const { removeItem } = useCartActions();
+	const { usdRate } = useCurrency();
 
 	return (
 		<div className="flex gap-4 p-3 rounded-lg relative bg-card hover:bg-accent transition-colors">
@@ -34,6 +36,7 @@ export function CartItem({ item }: CartItemProps) {
 					<Price
 						regularPrice={item.ebook.regularPrice}
 						salesPrice={item.ebook.salesPrice}
+						usdRate={usdRate}
 					/>
 				</div>
 			</div>
