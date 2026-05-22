@@ -1,5 +1,7 @@
+import { useCurrency } from "@/context/CurrencyContext";
 import type { CartItem } from "@/types/cart";
 import { formatCLP } from "@/utils/formatClp";
+import { formatUsd } from "@/utils/formatUsd";
 import { Button } from "../ui/button";
 
 interface CheckoutSummaryProps {
@@ -17,6 +19,10 @@ export function CheckoutSummary({
 	disabled,
 	onSubmit,
 }: CheckoutSummaryProps) {
+	const { usdRate } = useCurrency();
+
+	const formattedUsdSubtotal = usdRate ? formatUsd(subtotal / usdRate) : null;
+
 	return (
 		<div className="rounded-lg border p-6 space-y-4 bg-card">
 			<h2 className="font-semibold text-lg">Resumen</h2>
@@ -36,9 +42,17 @@ export function CheckoutSummary({
 					</div>
 				);
 			})}
-			<div className="flex justify-between font-semibold border-t pt-4">
-				<span>Subtotal</span>
-				<span>{formatCLP(subtotal)}</span>
+			<div className="space-y-1 border-t pt-4">
+				<div className="flex items-center justify-between text-lg font-semibold">
+					<span>Subtotal</span>
+					<span className="text-primary ">{formatCLP(subtotal)}</span>
+				</div>
+				{formattedUsdSubtotal && (
+					<div className="flex items-center justify-between text-sm text-muted-foreground">
+						<span></span>
+						<span>US{formattedUsdSubtotal}</span>
+					</div>
+				)}
 			</div>
 			<Button
 				className="w-full cursor-pointer"

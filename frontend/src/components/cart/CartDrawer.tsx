@@ -61,7 +61,7 @@ export function CartDrawer() {
 						<div className="space-y-1">
 							<div className="flex items-center justify-between text-lg font-semibold">
 								<span>Subtotal</span>
-								<span>{formatCLP(subtotal)}</span>
+								<span className="text-primary ">{formatCLP(subtotal)}</span>
 							</div>
 							{formattedUsdSubtotal && (
 								<div className="flex items-center justify-between text-sm text-muted-foreground">

@@ -17,10 +17,13 @@ export function BankDetailRow({ label, value, copyable }: BankDetailRowProps) {
 	};
 
 	return (
-		<div className="flex justify-between text-sm">
+		<div className="grid grid-cols-1 gap-1 text-sm md:grid-cols-[7rem_minmax(0,1fr)_auto] md:items-center md:gap-3">
 			<span className="text-muted-foreground">{label}</span>
-			<div className="flex items-center gap-2">
-				<span className="font-medium">{value}</span>
+
+			<div className="flex items-center justify-between gap-2 sm:contents">
+				<span className="min-w-0 wrap-break-word font-medium leading-snug text-foreground sm:text-right">
+					{value}
+				</span>
 				{copyable && (
 					<button
 						onClick={handleCopy}
