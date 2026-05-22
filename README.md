@@ -1,6 +1,6 @@
 # Alimentacion Consciente Website
 
-Website for selling ebooks, built with a modern full-stack setup using **Next.js**, **NestJS**, and **GraphQL**. The project is split into a frontend deployed on **Vercel** and a backend deployed on **Railway**, using **Supabase** for both the database and file storage. :contentReference[oaicite:0]{index=0} :contentReference[oaicite:1]{index=1}
+Website for selling ebooks, built with a modern full-stack setup using **Next.js**, **NestJS**, and **GraphQL**. The project is split into a frontend deployed on **Vercel** and a backend deployed on **Railway**, using **Supabase** for both the database and file storage.
 
 ## Tech Stack
 
@@ -25,7 +25,7 @@ Website for selling ebooks, built with a modern full-stack setup using **Next.js
 - Frontend: Vercel
 - Backend: Google Cloud Run (Docker)
 - Database: Supabase
-- File storage: Supabase Storage :contentReference[oaicite:2]{index=2}
+- File storage: Supabase Storage
 
 ---
 
@@ -41,7 +41,7 @@ Website for selling ebooks, built with a modern full-stack setup using **Next.js
   - purchase confirmation to customer
   - contact messages to admin
   - ebook download links after purchase completion
-- Signed download URLs generated from Supabase Storage :contentReference[oaicite:3]{index=3} :contentReference[oaicite:4]{index=4} :contentReference[oaicite:5]{index=5} :contentReference[oaicite:6]{index=6} :contentReference[oaicite:7]{index=7}
+- Signed download URLs generated from Supabase Storage
 
 ---
 
